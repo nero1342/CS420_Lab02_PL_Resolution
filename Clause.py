@@ -39,7 +39,7 @@ class Clause:
     
     def to_string(self):
         if (len(self.literals) == 0):
-            return "\{\}"
+            return "{}"
         st = self.int2literal(self.literals[0])
         link = " OR "
         for i in range(len(self.literals) - 1):
@@ -50,17 +50,5 @@ class Clause:
         s = set([abs(x) for x in self.literals])
         return len(s) < len(self.literals)
 
-    def resolve_with(self, c):
-        set1 = set(self.literals)
-        ret = []
-        for x in c.literals:
-            if -x in set1:
-                set1.remove(-x) 
-            else:
-                ret.append(x)
-        for x in set1:
-            ret.append(x)
-            
-        ret_clause = Clause()
-        ret_clause.literals = ret 
-        return ret_clause
+    def contains(self, literal):
+        return literal in self.literals
