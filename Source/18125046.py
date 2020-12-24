@@ -3,16 +3,14 @@ from Clause import Clause
 from PLResolution import PLResolution
 from DP import DP 
 import argparse
-
+   
 def input(input_path):
     with open(input_path, "r") as f:
-        alpha = f.readline() [:-1]
-        n = int(f.readline())
+        alpha = f.readline().strip()
+        n = int(f.readline().strip())
         clauses = []
         for i in range(n):
-            clause = f.readline()
-            if clause[-1] == '\n':
-                clause = clause[:-1]
+            clause = f.readline().strip()
             print(clause)
             clauses.append(clause)
     return alpha, clauses 

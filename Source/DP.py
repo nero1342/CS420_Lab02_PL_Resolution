@@ -16,17 +16,15 @@ class DP(Solver):
             clauses_contain_minus_x = []
             self.reset_new_clauses() 
             for clause in self.kb.clauses:
+                self.numResolve += 2
                 val_x = 0
                 if clause.contains(x):
-                    print("Pos: ", clause.to_string())
                     val_x = x
                     clauses_contain_x.append(clause) 
                 if clause.contains(-x):
-                    print("Minus: ", clause.to_string())
                     val_x = -x 
                     clauses_contain_minus_x.append(clause)
                 if val_x == 0:
-                    print("None: ", clause.to_string())
                     self.newClauses.append(clause)
             for clause_1 in clauses_contain_x:
                 for clause_2 in clauses_contain_minus_x:
@@ -45,6 +43,7 @@ class DP(Solver):
         if self.is_finished():
             return 
     def resolve(self, c1, c2, literal):
+        self.numResolve += 1
         ret = []
         ret.extend(c1.literals)
         ret.extend(c2.literals) 

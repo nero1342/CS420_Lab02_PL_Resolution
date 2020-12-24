@@ -9,6 +9,8 @@ class Solver:
 
         self.newClauses = []
     
+        self.numResolve = 0
+
     def reset_new_clauses(self):
         self.newClauses = [] 
 
@@ -21,9 +23,11 @@ class Solver:
         for clause in self.newClauses:
             if len(clause.literals) == 0:
                 print("YES", file = self.f) 
+                print("Total resolve: ", self.numResolve)
                 return True 
         if len(self.newClauses) == 0:
             print("NO", file = self.f) 
+            print("Total resolve: ", self.numResolve)
             return True 
         return False 
 

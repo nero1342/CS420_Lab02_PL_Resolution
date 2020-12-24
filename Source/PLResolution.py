@@ -24,6 +24,7 @@ class PLResolution(Solver):
                 return 
     
     def resolve(self, c1, c2):
+        self.numResolve += 1
         set1 = set(c1.literals)
         ret = []
         n_pairs = 0
