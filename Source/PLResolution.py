@@ -40,7 +40,8 @@ class PLResolution(Solver):
             return c1
 
         ret_clause = Clause()
-        ret_clause.literals = list(set(ret)) 
+        ret = sorted(ret, key=abs)
+        ret_clause.literals = ret
 
-        # print(self.to_string(), c.to_string(), ret_clause.to_string())
+        #print(c1.to_string(), c2.to_string(), ret , ret_clause.to_string())
         return ret_clause

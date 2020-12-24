@@ -10,7 +10,7 @@ class DP(Solver):
         vocab = set([abs(x) for clause in self.kb.clauses for x in clause.literals])
         print("David-Putman procedure")
         for x in vocab:
-            print("Resolve x = {}".format(x))
+            print("Resolve x = {}".format(chr(x + 64)))
             newKb = []
             clauses_contain_x = []
             clauses_contain_minus_x = []
@@ -18,12 +18,15 @@ class DP(Solver):
             for clause in self.kb.clauses:
                 val_x = 0
                 if clause.contains(x):
+                    print("Pos: ", clause.to_string())
                     val_x = x
                     clauses_contain_x.append(clause) 
                 if clause.contains(-x):
+                    print("Minus: ", clause.to_string())
                     val_x = -x 
-                    clauses_contain_minus_x.append(clause) 
+                    clauses_contain_minus_x.append(clause)
                 if val_x == 0:
+                    print("None: ", clause.to_string())
                     self.newClauses.append(clause)
             for clause_1 in clauses_contain_x:
                 for clause_2 in clauses_contain_minus_x:

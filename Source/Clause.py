@@ -18,6 +18,7 @@ class Clause:
         return [self.literal2int(x) for x in lst]
 
     def literal2int(self, x):
+        print(x, len(x))
         if x[0] == '-':
             assert(len(x) == 2)
             return -(ord(x[1]) - ord('A') + 1)
