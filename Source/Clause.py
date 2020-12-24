@@ -3,11 +3,8 @@ class Clause:
     def __init__(self, clause=None, form=0):
         # form = 0: CNF, 1: DNF
         self.form = form
-        if form == 0: 
-            self.literals = self.split2literals(clause, " OR ")
-        else:
-            self.literals = self.split2literals(clause, " AND ")
-    
+        self.literals = self.split2literals(clause, " OR ")
+
     def __eq__(self, other):
         return set(self.literals) == set(other.literals) 
 

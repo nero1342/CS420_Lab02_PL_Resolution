@@ -1,9 +1,9 @@
+import argparse
 from KnowledgeBase import KnowledgeBase
 from Clause import Clause
 from PLResolution import PLResolution
 from DP import DP 
-import argparse
-   
+
 def input(input_path):
     with open(input_path, "r") as f:
         alpha = f.readline().strip()

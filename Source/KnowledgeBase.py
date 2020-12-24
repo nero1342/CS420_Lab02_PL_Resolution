@@ -4,8 +4,16 @@ class KnowledgeBase:
         self.clauses = []
         
     def add_clause(self, clause, form = 0):
+        print(clause, form)
         c = Clause(clause, form)
+        print("Clause ", c.to_string()) 
         if form == 1:
             c.negate() 
-        
-        self.clauses.append(c) 
+            clauses = [Clause(c.int2literal(x)) for x in c.literals]
+            print("Hello")
+            for clause in clauses:
+                self.clauses.append(clause)
+                print(clause.to_string())
+            print("End hello")
+        else:
+            self.clauses.append(c) 

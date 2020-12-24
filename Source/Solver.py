@@ -1,4 +1,3 @@
-
 class Solver:
     def __init__(self, kb, alpha, output_path):
         self.f = open(output_path, "w")

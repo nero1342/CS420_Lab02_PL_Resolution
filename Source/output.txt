@@ -1,8 +1,17 @@
-3
-B OR -C
--B
-B
+5
+-S
+-R OR Q
+-Q
+R OR S
+S
+4
+-S
+R OR S
+S
+-R
 2
--C
+-S
+S
+1
 {}
 YES
